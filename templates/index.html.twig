@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block title "Accueil" %}
+
+{% block body %}
+    <div class="container">
+        <div class="row d-flex">
+            <h1 class="">Liste des élèves</h1>
+            <a href="" class="btn btn-primary ml-auto">Ajouter un élève</a>
+        </div>
+        <table class="table table-striped mt-2">
+            <thead>
+                <th>Id</th>
+                <th>Photos</th>
+                <th>Nom</th>
+                <th>Age</th>
+                <th>Adresse</th>
+                <th>Ville</th>
+                <th>Téléphone</th>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                    <tr>
+                        <td>#{{ student.id }}</td>
+                        <td style="width:15%"><img src="{{ student.photo }}" alt="{{ student.lastName }}" style="width:70%"></td>
+                        <td><strong>{{ student.lastName|upper}} {{ student.firstName }}</strong> </td>
+                        <td>{{ student.age }}</td>
+                        <td>{{ student.address }}</td>
+                        <td>{{ student.city }}</td>
+                        <td>{{ student.phone }}</td>
+                    </tr> 
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
