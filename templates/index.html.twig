@@ -22,7 +22,7 @@
                 {% for student in students %}
                     <tr>
                         <td>#{{ student.id }}</td>
-                        <td style="width:15%"><img src="{{ student.photo }}" alt="{{ student.lastName }}" style="width:70%"></td>
+                        <td style="width:15%"><img src="{{ student.photo }}" alt="{{ student.lastName }}" style="width:45%"></td>
                         <td><strong>{{ student.lastName|upper}} {{ student.firstName }}</strong> </td>
                         <td>{{ student.age }}</td>
                         <td>{{ student.address }}</td>
