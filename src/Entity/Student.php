@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\StudentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=StudentRepository::class)
@@ -19,41 +20,51 @@ class Student
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le prénom est obligatoire")
+     * @Assert\Length(min=2, minMessage="Le prénom doit contenir 2 caractères minimum")
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le prénom est obligatoire")
+     * @Assert\Length(min=2, minMessage="Le prénom doit contenir 2 caractères minimum")
      */
     private $lastName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le genre est M ou F")
      */
     private $gender;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(min=5, max=10, minMessage="L'age doit être au minimum {{ limit }} ans", maxMessage="L'age doit être au maximum {{ limit }} ans")
      */
     private $age;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $address;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $phone;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $photo;
 

@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %} 
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="{{student.photo}}" alt="{{student.lastName}}">
+            </div>
+            <div class="col">
+                <h3>{{student.lastName|upper}} {{student.firstName}}</h3>
+                <p>Age : {{student.age}} ans</p>
+                <p>Adresse : {{student.address}}</p>
+                <p>Ville : {{student.city}}</p>
+                <p>Téléphone : {{student.phone}}</p>
+            </div>
+        </div>  
+    </div>
+{% endblock %}

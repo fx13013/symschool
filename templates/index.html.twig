@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row d-flex">
             <h1 class="">Liste des élèves</h1>
-            <a href="" class="btn btn-primary ml-auto">Ajouter un élève</a>
+            <a href="{{path('student_new')}}" class="btn btn-primary ml-auto">Ajouter un élève</a>
         </div>
         <table class="table table-striped mt-2">
             <thead>
@@ -17,17 +17,21 @@
                 <th>Adresse</th>
                 <th>Ville</th>
                 <th>Téléphone</th>
+                <th></th>
+                <th></th>
             </thead>
             <tbody>
                 {% for student in students %}
                     <tr>
                         <td>#{{ student.id }}</td>
                         <td style="width:15%"><img src="{{ student.photo }}" alt="{{ student.lastName }}" style="width:45%"></td>
-                        <td><strong>{{ student.lastName|upper}} {{ student.firstName }}</strong> </td>
+                        <td><a href="{{path('student_show', {id: student.id})}}"><strong>{{ student.lastName|upper}} {{ student.firstName }}</strong> </a></td>
                         <td>{{ student.age }}</td>
                         <td>{{ student.address }}</td>
                         <td>{{ student.city }}</td>
                         <td>{{ student.phone }}</td>
+                        <td><a href="{{path('student_edit', {id: student.id})}}" class="btn btn-secondary">Editer</a></td>
+                        <td><a href="{{path('student_delete', {id: student.id})}}" class="btn btn-danger">Supprimer</a></td>
                     </tr> 
                 {% endfor %}
             </tbody>
