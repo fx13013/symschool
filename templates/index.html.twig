@@ -12,6 +12,7 @@
             <thead>
                 <th>Id</th>
                 <th>Photos</th>
+                <th>Classe</th>
                 <th>Nom</th>
                 <th>Age</th>
                 <th>Adresse</th>
@@ -25,6 +26,7 @@
                     <tr>
                         <td>#{{ student.id }}</td>
                         <td style="width:15%"><img src="{{ student.photo }}" alt="{{ student.lastName }}" style="width:45%"></td>
+                        <td>{{student.classroom.title}}</td>
                         <td><a href="{{path('student_show', {id: student.id})}}"><strong>{{ student.lastName|upper}} {{ student.firstName }}</strong> </a></td>
                         <td>{{ student.age }}</td>
                         <td>{{ student.address }}</td>

@@ -68,6 +68,11 @@ class Student
      */
     private $photo;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Classroom::class, inversedBy="students")
+     */
+    private $classroom;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -165,6 +170,18 @@ class Student
     public function setPhoto(string $photo): self
     {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getClassroom(): ?Classroom
+    {
+        return $this->classroom;
+    }
+
+    public function setClassroom(?Classroom $classroom): self
+    {
+        $this->classroom = $classroom;
 
         return $this;
     }
